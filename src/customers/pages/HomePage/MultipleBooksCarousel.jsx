@@ -10,7 +10,7 @@ const MultipleBooksCarousel = () => {
         slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 1500,
+        speed: 1000,
         autoplaySpeed:1000,
         arrows:false
       };
