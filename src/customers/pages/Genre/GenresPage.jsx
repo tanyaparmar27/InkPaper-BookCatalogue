@@ -5,6 +5,7 @@ import GenreCard from './GenreCard'
 import axios from "axios"
 
 const GenresPage = () => {
+  
   const [genres,setGenre]=useState([])
 
   //fetching from backend on mounting
@@ -21,10 +22,12 @@ const GenresPage = () => {
 
   return (
     <div>
-      <h2>Genres</h2>
-      <div className="genre-page">
-      {genres?.map(genre => (
-          <GenreCard key={genre.genre_id} genre={genre} />
+      <h2 className="text-3xl font-semibold mb-4 mx-auto"><center>Genres</center></h2>
+      <div className="grid grid-cols-3 gap-8">
+        {genres.map(genre => (
+          <div key={genre.genre_id} className="rounded-full overflow-hidden mr-4 w-25 h-23" >
+            <GenreCard genre={genre} />
+          </div>
         ))}
       </div>
     </div>

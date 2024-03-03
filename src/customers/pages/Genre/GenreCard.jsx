@@ -2,12 +2,13 @@
 import { Link } from 'react-router-dom';
 
 const GenreCard = ({genre}) => {
+  const genreNameInUrl = genre.genre_name.toLowerCase().replace(/\s+/g, '-');
   return (
     <div className="genre-card">
-      <Link to={`/genres/${genre.genre_id}`}>
-        <img src={genre.genre_url}/>
-        <h3>{genre.genre_name}</h3>
+      <Link to={`/genres/${genreNameInUrl}`}>
+        <img src={genre.genre_url} alt={genre.genre_name} />
       </Link>
+      <h3 className="text-center">{genre.genre_name}</h3>
     </div>
   );
 };
