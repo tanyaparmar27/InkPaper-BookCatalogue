@@ -64,8 +64,7 @@ const Navbar = () => {
                 <Menu
                     anchorEl={myLibraryMenuAnchor}
                     open={Boolean(myLibraryMenuAnchor)}
-                    onClick={handleMyLibraryClose}
-                >
+                    onClick={handleMyLibraryClose}>
                     <MenuItem onClick={handleCurrentlyReadingClick}>
                         Currently Reading
                     </MenuItem>

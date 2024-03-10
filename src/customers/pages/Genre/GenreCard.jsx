@@ -8,7 +8,7 @@ const GenreCard = ({genre}) => {
       <Link to={`/genres/${genreNameInUrl}`}>
         <img src={genre.genre_url} alt={genre.genre_name} />
       </Link>
-      <h3 className="text-center">{genre.genre_name}</h3>
+      
     </div>
   );
 };

@@ -7,11 +7,10 @@ import CurrentlyReading from '../customers/pages/MyLibrary/CurrentlyReading'
 import AlreadyRead from '../customers/pages/MyLibrary/AlreadyRead'
 import Romance from '../customers/pages/Genre/Genres/Romance'
 import Mystery from '../customers/pages/Genre/Genres/Mystery'
-import AutoBiography from '../customers/pages/Genre/Genres/AutoBiography'
 import Classics from '../customers/pages/Genre/Genres/Classics'
 import Horror from '../customers/pages/Genre/Genres/Horror'
 import SelfHelp from '../customers/pages/Genre/Genres/SelfHelp'
-
+import Autobiography from '../customers/pages/Genre/Genres/Autobiography'
 
 
 const CustomerRoutes = () => {
@@ -29,11 +28,11 @@ const CustomerRoutes = () => {
           <Route path='/currentlyreading' element={<CurrentlyReading/>}></Route>
           <Route path='/alreadyread' element={<AlreadyRead/>}></Route>
           <Route path='/genres/:romance' element={<Romance />} />
-          <Route path='/genres/mystery' element={<Mystery />} />
-          <Route path='/genres/autobiography' element={<AutoBiography />} />
-          <Route path='/genres/classics' element={<Classics />} />
-          <Route path='/genres/selfhelp' element={<SelfHelp />} />
-          <Route path='/genres/horror' element={<Horror />} />
+          <Route path='/genres/:mystery' element={<Mystery />} />
+          <Route path='/genres/:classics' element={<Classics />} />
+          <Route path='/genres/:selfhelp' element={<SelfHelp />} />
+          <Route path='/genres/:horror' element={<Horror />} />
+          <Route path='/genres/autobiography' element={<Autobiography/>}></Route>
 
 
         </Routes>
