@@ -33,7 +33,5 @@ const GenresPage = () => {
     </div>
   );
 }
-  
-
 
 export default GenresPage
