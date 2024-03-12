@@ -1,34 +1,36 @@
-/* eslint-disable react/prop-types */
-
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import BookCard from './../BookCard'; 
+import { useGenre } from '../../context/genreContext';
 
 const BooksByGenrePage = () => {
-  const {genreId} = useParams();
-  const [books,setBooks] = useState([])
+  const { genreName } = useParams();
+  const [books, setBooks] = useState([]);
 
-  useEffect(()=>{
+  const { selectedGenre } = useGenre();
+
+
+  useEffect(() => {
+    const fetchBooksByGenre = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/books/${selectedGenre}`);
+        console.log(response)
+        setBooks(response.data);
+      } catch (error) {
+        console.error('Error fetching books by genre:', error);
+      }
+    };
+
     fetchBooksByGenre();
-  },[genreId])
+  }, []);
 
-  const fetchBooksByGenre = async () =>{
-    try{
-      const response = await axios.get('http://localhost:8080/genres/${genreId}/books')
-      setBooks(response.data)
-    }catch(error){
-      console.error("error in fetching books by genre : ",error)
-    }
-  }
   return (
     <div>
-      <h2>Books in Genre</h2>
-      <div>
+      <h2 className='text-4xl'>Books in {genreName}</h2>
+      <div className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
         {books.map(book => (
-          <div key={book.book_id}>
-            <img src={book.book_url} alt={book.book_name} />
-            <p>{book.book_name}</p>
-          </div>
+          <BookCard key={book.book_id} book={book} />
         ))}
       </div>
     </div>

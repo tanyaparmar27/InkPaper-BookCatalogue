@@ -3,10 +3,14 @@ import { useEffect } from "react"
 import { useState } from "react"
 import GenreCard from './GenreCard'
 import axios from "axios"
+import { useGenre } from "../../context/genreContext"
 
 const GenresPage = () => {
   
   const [genres,setGenre]=useState([])
+  const { selectedGenre } = useGenre();
+
+  console.log(selectedGenre)
 
   //fetching from backend on mounting
   useEffect(()=>{
@@ -21,11 +25,11 @@ const GenresPage = () => {
 
 
   return (
-    <div>
-      <h2 className="text-3xl font-semibold mb-4 mx-auto"><center>Genres</center></h2>
-      <div className="grid grid-cols-3 gap-4">
+    <div className='' style={{ backgroundImage: `url('')` }}>
+      <h2 className="text-5xl  mb-4 mx-auto "><center>Genres</center></h2>
+      <div className="grid grid-cols-3 gap-3 ">
         {genres.map(genre => (
-          <div key={genre.genre_id} className="h-auto max-w-full rounded-lg" >
+          <div key={genre.genre_id} >
             <GenreCard genre={genre} />
           </div>
         ))}
@@ -35,3 +39,4 @@ const GenresPage = () => {
 }
 
 export default GenresPage
+
