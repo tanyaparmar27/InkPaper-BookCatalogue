@@ -26,8 +26,8 @@ const BooksByGenrePage = () => {
   }, []);
 
   return (
-    <div>
-      <h2 className='text-4xl'>Books in {genreName}</h2>
+    <div className="bg-[url('')] bg-cover bg-center">
+      <h2 className='text-4xl font-sans text-center sticky top-0 z-10'>Books in {genreName}</h2>
       <div className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
         {books.map(book => (
           <BookCard key={book.book_id} book={book} />

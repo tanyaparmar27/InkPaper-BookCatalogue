@@ -6,6 +6,7 @@ import WantToRead from '../customers/pages/MyLibrary/WantToRead'
 import CurrentlyReading from '../customers/pages/MyLibrary/CurrentlyReading'
 import AlreadyRead from '../customers/pages/MyLibrary/AlreadyRead'
 import BooksByGenrePage from '../customers/pages/Genre/BooksByGenrepage'
+import MainBookCard from '../customers/pages/MainBookCard'
 
 
 const CustomerRoutes = () => {
@@ -23,7 +24,7 @@ const CustomerRoutes = () => {
           <Route path='/currentlyreading' element={<CurrentlyReading/>}></Route>
           <Route path='/alreadyread' element={<AlreadyRead/>}></Route>
           <Route path='/genres/:genreName' element={<BooksByGenrePage />} />
-
+          <Route path='/books/:bookName' element={<MainBookCard/>}></Route>
 
         </Routes>
 
