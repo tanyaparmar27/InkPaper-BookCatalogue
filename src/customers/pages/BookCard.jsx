@@ -2,13 +2,12 @@
 import { Link } from 'react-router-dom';
 
 const BookCard = ({ book }) => {
-  const bookNameInUrl = book.book_name.toLowerCase().replace(/\s+/g, '-');
+  const bookId = book.book_id; // Assuming book_id is correct in your data
+
   return (
     <div>
       <div className="w-64 bg-white shadow-md rounded-lg duration-500 hover:scale-105 hover:shadow-xl">
-        <Link to={{
-          pathname: `/books/${bookNameInUrl}`,
-        }}>
+        <Link to={`/book/${bookId}`}>
           <img src={book.book_url} alt={book.book_name} className="h-56 w-full object-cover rounded-t-lg" />
           <div className="px-4 py-3">
             <p className="text-lg font-bold text-black truncate block capitalize">{book.book_name}</p>

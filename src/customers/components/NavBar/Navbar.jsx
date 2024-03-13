@@ -4,7 +4,7 @@ import { IconButton, Menu, MenuItem } from "@mui/material";
 import { FaUser } from 'react-icons/fa';
 import { FaThList } from 'react-icons/fa';
 import { AiOutlineBook } from 'react-icons/ai';
-import SearchIcon from "@material-ui/icons/Search";
+// import SearchIcon from "@material-ui/icons/Search";
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -60,9 +60,7 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center space-x-2">
-                <IconButton>
-                    <SearchIcon sx={{fontSize:"1.5rem"}} onClick={handleSearch}></SearchIcon> 
-                </IconButton>
+                
 
                 <input
                     type="text"
@@ -72,6 +70,10 @@ const Navbar = () => {
                     placeholder="Search books..."
                     className="text-gray-600 bg-transparent border-b border-gray-400 focus:outline-none"
                 />
+
+                {/* <IconButton>
+                    <SearchIcon sx={{fontSize:"1.5rem"}} onClick={handleSearch}></SearchIcon> 
+                </IconButton> */}
 
                 <IconButton onClick={handleGenresClick}> 
                     <FaThList size={20} style={{ color: 'white' }} /> 

@@ -39,4 +39,15 @@ public class BookController {
         return bookRepository.findBookByGenre(genre_id);
     }
 
+    @PutMapping("/book/{book_id}/status")
+    public ResponseEntity<Book> updateBookStatus(@PathVariable(value = "book_id") long book_id,
+                                                 @RequestBody String newStatus) {
+        Book book = bookRepository.findById(book_id).orElseThrow(
+                ()-> new ResourceNotFoundException("Book does not exist with id " + book_id)
+        );
+        book.setBook_status(newStatus);
+        final Book updatedBook = bookRepository.save(book);
+        return ResponseEntity.ok(updatedBook);
+    }
+
 }

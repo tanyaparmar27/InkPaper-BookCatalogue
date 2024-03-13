@@ -20,7 +20,7 @@ const HomePage = () => {
             <div className="">
                 <p className="text-2xl font-semibold text-gray-400 py-3 pb-10">BestSellers</p>
             </div>
-            <MultipleBooksCarousel/>
+            <MultipleBooksCarousel key={""}/>
             
         </section>
 

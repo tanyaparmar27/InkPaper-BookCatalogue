@@ -1,20 +1,16 @@
 /* eslint-disable react/prop-types */
-// import { createContext, useContext,useState } from "react";
+import  { createContext, useContext, useState } from 'react';
 
-// const BookContext = createContext();
+const BookContext = createContext();
 
-// export const BookProvider = ({children}) =>{
-//     const [selectedBook, setSelectedBook] = useState()
+export const BookProvider = ({ children }) => {
+  const [bookData, setBookData] = useState([]);
 
-//     const selectBook=(book)=>{
-//         setSelectedBook(book)
-//     }
+  return (
+    <BookContext.Provider value={{ bookData, setBookData }}>
+      {children}
+    </BookContext.Provider>
+  );
+};
 
-//     return(
-//         <BookContext.Provider value={{selectedBook,selectBook}}>
-//             {children}
-//         </BookContext.Provider>
-//     )
-// }
-
-// export const useBook = () => useContext(BookContext)
+export const useBook = () => useContext(BookContext);
