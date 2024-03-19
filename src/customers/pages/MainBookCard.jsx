@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -38,9 +39,9 @@ const MainBookCard = () => {
                 onChange={handleStatusChange}
                 className="ml-2 bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
               >
-                <option value="want-to-read">Want to read</option>
-                <option value="currently-reading">Currently reading</option>
-                <option value="already-read">Already read</option>
+                <option value="want_to_read">Want to read</option>
+                <option value="currently_reading">Currently reading</option>
+                <option value="already_read">Already read</option>
               </select>
             </div>
           </div>
