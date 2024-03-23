@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IconButton, Menu, MenuItem } from "@mui/material";
-// import { FaUser } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import { FaThList } from 'react-icons/fa';
 import { AiOutlineBook } from 'react-icons/ai';
 
@@ -24,9 +24,13 @@ const Navbar = () => {
         navigate("/genres"); 
     };
 
+    const handleProfileClick = ()=>{
+        navigate("/profile")
+    }
+
      // Function to navigate to status page based on selected status
     const handleStatusSelect = (status) => {
-        navigate(`/books/status/${status}`);
+        navigate(`/books/${status}`);
         handleStatusMenuClose(); // Close the status menu
     };
 
@@ -73,9 +77,9 @@ const Navbar = () => {
                     <AiOutlineBook size={20} style={{ color: 'white' }} /> 
                 </IconButton>
 
-                {/* <IconButton onClick={handleProfileClick}> 
+                <IconButton onClick={handleProfileClick}> 
                     <FaUser size={20} style={{ color: 'white' }} /> 
-                </IconButton> */}
+                </IconButton>
 
                 <Menu
                     anchorEl={statusMenuAnchor}
