@@ -14,7 +14,7 @@ const BooksByGenrePage = () => {
   useEffect(() => {
     const fetchBooksByGenre = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/books/${selectedGenre}`);
+        const response = await axios.get(`http://localhost:8080/genres/books/${selectedGenre}`);
         console.log(response)
         setBooks(response.data);
       } catch (error) {

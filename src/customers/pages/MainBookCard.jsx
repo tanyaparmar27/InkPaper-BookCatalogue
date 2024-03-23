@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -11,7 +10,7 @@ const MainBookCard = () => {
   useEffect(() => {
     const fetchBookDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/book/${bookId}`);
+        const response = await axios.get(`http://localhost:8080/books/${bookId}`);
         setBook(response.data);
       } catch (error) {
         console.error('Error fetching book details:', error);
@@ -21,27 +20,35 @@ const MainBookCard = () => {
     fetchBookDetails();
   }, [bookId]);
 
-  const handleStatusChange = (event) => {
+  const handleStatusChange = async (event) => {
     const status = event.target.value;
     setNewStatus(status);
-    alert(`${status} category set`);
+    try {
+      await axios.patch(`http://localhost:8080/books/${bookId}`, { book_status: status });
+      alert(`Book status successfully updated to ${status}`);
+    } catch (error) {
+      console.error('Error updating book status:', error);
+      alert('Failed to update book status. Please try again.');
+    }
   };
-  
+
   return (
-    <div className="bg-white border border-gray-300 dark:border-gray-700 shadow-md rounded-lg p-6">
+    <div className="bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row -mx-4">
           <div className="md:flex-1 px-4">
-            <img src={book?.book_url} alt={book?.book_name} className="h-80 rounded-lg object-cover bg-gray-300 dark:bg-gray-700 mb-4" />
+            <img src={book?.book_url} alt={book?.book_name} className="h-80 rounded-lg object-cover bg-gray-300 dark:bg-white mb-4 p-2" />
             
             <div>
               <select
+                value={newStatus}
                 onChange={handleStatusChange}
                 className="ml-2 bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
               >
                 <option value="want_to_read">Want to read</option>
                 <option value="currently_reading">Currently reading</option>
                 <option value="already_read">Already read</option>
+                <option value="none">None</option>
               </select>
             </div>
           </div>

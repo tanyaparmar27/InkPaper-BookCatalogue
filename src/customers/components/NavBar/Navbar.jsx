@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IconButton, Menu, MenuItem } from "@mui/material";
-import { FaUser } from 'react-icons/fa';
+// import { FaUser } from 'react-icons/fa';
 import { FaThList } from 'react-icons/fa';
 import { AiOutlineBook } from 'react-icons/ai';
-// import SearchIcon from "@material-ui/icons/Search";
 
 const Navbar = () => {
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState(""); // State to store search query
-    const [myLibraryMenuAnchor, setMyLibraryMenuAnchor] = useState(false);
+    const [statusMenuAnchor, setStatusMenuAnchor] = useState(null);
 
     const handleSearch = async () => {
         console.log("search")
@@ -25,32 +24,26 @@ const Navbar = () => {
         navigate("/genres"); 
     };
 
+     // Function to navigate to status page based on selected status
+    const handleStatusSelect = (status) => {
+        navigate(`/books/status/${status}`);
+        handleStatusMenuClose(); // Close the status menu
+    };
+
+    // Function to handle status menu click
     const handleMyLibraryClick = (event) => {
-        setMyLibraryMenuAnchor(event.currentTarget);
+        setStatusMenuAnchor(event.currentTarget);
     };
 
-    const handleMyLibraryClose = () => {
-        setMyLibraryMenuAnchor(false);
+
+    // Function to handle status menu close
+    const handleStatusMenuClose = () => {
+        setStatusMenuAnchor(null);
     };
 
-    const handleCurrentlyReadingClick = () => {
-        navigate("/currentlyreading");
-        handleMyLibraryClose();
-    };
+    
 
-    const handleAlreadyReadClick = () => {
-        navigate("/alreadyread");
-        handleMyLibraryClose();
-    };
-
-    const handleWantToReadClick = () => {
-        navigate("/wanttoread");
-        handleMyLibraryClose();
-    };
-
-    const handleProfileClick = () =>{
-        navigate("/profile");
-    }
+    
 
     return (
         <>
@@ -71,9 +64,6 @@ const Navbar = () => {
                     className="text-gray-600 bg-transparent border-b border-gray-400 focus:outline-none"
                 />
 
-                {/* <IconButton>
-                    <SearchIcon sx={{fontSize:"1.5rem"}} onClick={handleSearch}></SearchIcon> 
-                </IconButton> */}
 
                 <IconButton onClick={handleGenresClick}> 
                     <FaThList size={20} style={{ color: 'white' }} /> 
@@ -83,21 +73,22 @@ const Navbar = () => {
                     <AiOutlineBook size={20} style={{ color: 'white' }} /> 
                 </IconButton>
 
-                <IconButton onClick={handleProfileClick}> 
+                {/* <IconButton onClick={handleProfileClick}> 
                     <FaUser size={20} style={{ color: 'white' }} /> 
-                </IconButton>
+                </IconButton> */}
 
                 <Menu
-                    anchorEl={myLibraryMenuAnchor}
-                    open={Boolean(myLibraryMenuAnchor)}
-                    onClick={handleMyLibraryClose}>
-                    <MenuItem onClick={handleCurrentlyReadingClick}>
+                    anchorEl={statusMenuAnchor}
+                    open={Boolean(statusMenuAnchor)}
+                    onClose={handleStatusMenuClose}
+                >
+                    <MenuItem onClick={() => handleStatusSelect('currently_reading')}>
                         Currently Reading
                     </MenuItem>
-                    <MenuItem onClick={handleAlreadyReadClick}>
+                    <MenuItem onClick={() => handleStatusSelect('already_read')}>
                         Already Read
                     </MenuItem>
-                    <MenuItem onClick={handleWantToReadClick}>
+                    <MenuItem onClick={() => handleStatusSelect('want_to_read')}>
                         Want to Read
                     </MenuItem>
                 </Menu>

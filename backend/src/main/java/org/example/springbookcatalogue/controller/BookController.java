@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173")
 public class BookController {
 
     @Autowired
     private BookRepository bookRepository;
 
-    @PostMapping("/book")
+    @PostMapping("/books")
     public Book insertBook(@RequestBody Book book){
         return bookRepository.save(book);
     }
@@ -26,7 +26,7 @@ public class BookController {
         return bookRepository.findAll();
     }
 
-    @GetMapping("/book/{book_id}")
+    @GetMapping("/books/{book_id}")
     public ResponseEntity<Book> getBookById(@PathVariable(value = "book_id") long book_id){
         Book book = bookRepository.findById(book_id).orElseThrow(
                 ()-> new ResourceNotFoundException("book does not exist with id " + book_id)
@@ -34,20 +34,27 @@ public class BookController {
         return ResponseEntity.ok(book);
     }
 
-    @GetMapping("/books/{genre_id}")
+    @GetMapping("/genres/books/{genre_id}")
     public List<Book> getBooksByGenre(@PathVariable("genre_id")Long genre_id) {
         return bookRepository.findBookByGenre(genre_id);
     }
 
-    @PutMapping("/book/{book_id}/{book_status}")
-    public ResponseEntity<Book> updateBookStatus(@PathVariable(value = "book_id") long book_id,
-                                                 @RequestBody String newStatus) {
-        Book book = bookRepository.findById(book_id).orElseThrow(
-                ()-> new ResourceNotFoundException("Book does not exist with id " + book_id)
-        );
-        book.setBook_status(newStatus);
-        final Book updatedBook = bookRepository.save(book);
-        return ResponseEntity.ok(updatedBook);
+    @PatchMapping("/books/{bookId}")
+    public ResponseEntity<Book> updateBookStatus(@PathVariable long bookId, @RequestBody Book updatedBook) {
+        Book existingBook = bookRepository.findById(bookId)
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id: " + bookId));
+
+        existingBook.setBook_status(updatedBook.getBook_status());
+
+        final Book updatedBookEntity = bookRepository.save(existingBook);
+        return ResponseEntity.ok(updatedBookEntity);
     }
+
+    @GetMapping("/books/status/{status}")
+    public List<Book> findBooksByBookStatus(@PathVariable String status){
+       return bookRepository.findBooksByBookStatus(status);
+    }
+
+
 
 }

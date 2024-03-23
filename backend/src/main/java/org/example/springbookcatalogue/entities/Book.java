@@ -84,6 +84,7 @@ public class Book {
         this.book_url = book_url;
     }
 
+
     public String getBook_status() {
         return book_status;
     }
