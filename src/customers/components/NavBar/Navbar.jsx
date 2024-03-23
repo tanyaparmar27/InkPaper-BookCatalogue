@@ -30,7 +30,7 @@ const Navbar = () => {
 
      // Function to navigate to status page based on selected status
     const handleStatusSelect = (status) => {
-        navigate(`/books/${status}`);
+        navigate(`/${status}`);
         handleStatusMenuClose(); // Close the status menu
     };
 

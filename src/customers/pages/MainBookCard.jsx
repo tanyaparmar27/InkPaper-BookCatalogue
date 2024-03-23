@@ -23,13 +23,23 @@ const MainBookCard = () => {
   const handleStatusChange = async (event) => {
     const status = event.target.value;
     setNewStatus(status);
-    try {
-      await axios.patch(`http://localhost:8080/books/${bookId}`, { book_status: status });
-      alert(`Book status successfully updated to ${status}`);
-    } catch (error) {
-      console.error('Error updating book status:', error);
-      alert('Failed to update book status. Please try again.');
+    if(status=='none'){
+      try{
+        await axios.patch(`http://localhost:8080/books/${bookId}`, { book_status: null })
+        alert('book status removed')
+      }catch(error){
+        console.error('error removing book status')
+      }
+    }else{
+      try {
+        await axios.patch(`http://localhost:8080/books/${bookId}`, { book_status: status });
+        alert(`Book status successfully updated to ${status}`);
+      } catch (error) {
+        console.error('Error updating book status:', error);
+        alert('Failed to update book status. Please try again.');
+      }
     }
+    
   };
 
   return (

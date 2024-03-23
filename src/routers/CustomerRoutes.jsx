@@ -22,7 +22,7 @@ const CustomerRoutes = () => {
           <Route path='/profile' element={<Profile/>}></Route>
           <Route path='/genres/:genreName' element={<BooksByGenrePage />} />
           <Route path='/books/:bookId' element={<MainBookCard/>}></Route>
-          <Route path='/books/status/:statusName' element={<MyLibrary/>}></Route>
+          <Route path='/:statusName' element={<MyLibrary/>}></Route>
         </Routes>
 
        
