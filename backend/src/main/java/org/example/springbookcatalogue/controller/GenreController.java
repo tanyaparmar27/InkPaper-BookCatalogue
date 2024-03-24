@@ -15,7 +15,7 @@ public class GenreController {
     private GenreRepository genreRepository;
 
     //post genre to database
-    @PostMapping("/genre")
+    @PostMapping("/genres")
     public Genre createGenre(@RequestBody Genre genre){
         return genreRepository.save(genre);
     }

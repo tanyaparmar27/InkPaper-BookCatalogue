@@ -39,4 +39,3 @@ const GenresPage = () => {
 }
 
 export default GenresPage
-

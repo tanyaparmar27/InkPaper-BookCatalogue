@@ -9,13 +9,9 @@ import java.util.List;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book,Long> {
-
     @Query("select g from Book g where g.genre.genre_id = ?1")
     List<Book> findBookByGenre(@Param("id")Long id);
 
     @Query("select g from Book g where g.book_status= ?1")
     List<Book> findBooksByBookStatus(@Param("status") String status);
-
-
 }
-

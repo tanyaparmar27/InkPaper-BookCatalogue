@@ -52,10 +52,6 @@ public class BookController {
 
     @GetMapping("/books/status/{status}")
     public List<Book> findBooksByBookStatus(@PathVariable String status){
-       return bookRepository.findBooksByBookStatus(status);
+        return bookRepository.findBooksByBookStatus(status);
     }
-
-
-
 }
-
