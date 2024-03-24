@@ -7,18 +7,18 @@ import { AiOutlineBook } from 'react-icons/ai';
 
 const Navbar = () => {
     const navigate = useNavigate();
-    const [searchQuery, setSearchQuery] = useState(""); // State to store search query
+    // const [searchQuery, setSearchQuery] = useState(""); // State to store search query
     const [statusMenuAnchor, setStatusMenuAnchor] = useState(null);
 
-    const handleSearch = async () => {
-        console.log("search")
-    };
+    // const handleSearch = async () => {
+    //     console.log("search")
+    // };
 
-    const handleKeyDown = (event) => {
-        if (event.key === "Enter") {
-            handleSearch();
-        }
-    };
+    // const handleKeyDown = (event) => {
+    //     if (event.key === "Enter") {
+    //         handleSearch();
+    //     }
+    // };
 
     const handleGenresClick = () => {
         navigate("/genres"); 
@@ -59,14 +59,14 @@ const Navbar = () => {
             <div className="flex items-center space-x-2">
                 
 
-                <input
+                {/* <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder="Search books..."
                     className="text-gray-600 bg-transparent border-b border-gray-400 focus:outline-none"
-                />
+                /> */}
 
 
                 <IconButton onClick={handleGenresClick}> 
