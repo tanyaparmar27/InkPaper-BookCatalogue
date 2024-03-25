@@ -55,9 +55,9 @@ const MainBookCard = () => {
                 onChange={handleStatusChange}
                 className="ml-2 bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
               >
-                <option value="Want_To_Read">Want to read</option>
-                <option value="Currently_Reading">Currently reading</option>
-                <option value="Already_Read">Already read</option>
+                <option value="want_to_read">Want to read</option>
+                <option value="current_reading">Currently reading</option>
+                <option value="already_read">Already read</option>
                 <option value="none">None</option>
               </select>
             </div>

@@ -16,7 +16,7 @@ const GenreCard = ({ genre }) => {
         className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-75 transition-opacity opacity-0 hover:opacity-100"
         onClick={() => setSelectedGenre(genre.genre_id)}
       >
-        <h1 className="text-3xl text-white">{genre.genre_name}</h1>
+        <h1 className="text-3xl text-white italic">{genre.genre_name}</h1>
       </Link>
     </div>
   );

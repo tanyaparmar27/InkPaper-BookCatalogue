@@ -1,6 +1,7 @@
 package org.example.springbookcatalogue.controller;
 
 import org.example.springbookcatalogue.entities.Book;
+import org.example.springbookcatalogue.entities.Genre;
 import org.example.springbookcatalogue.exceptions.ResourceNotFoundException;
 import org.example.springbookcatalogue.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,11 +41,32 @@ public class BookController {
     }
 
     @PatchMapping("/books/{bookId}")
-    public ResponseEntity<Book> updateBookStatus(@PathVariable long bookId, @RequestBody Book updatedBook) {
+    public ResponseEntity<Book> updateBook(@PathVariable long bookId, @RequestBody Book updatedBook) {
         Book existingBook = bookRepository.findById(bookId)
                 .orElseThrow(() -> new ResourceNotFoundException("Book not found with id: " + bookId));
 
-        existingBook.setBook_status(updatedBook.getBook_status());
+        if(updatedBook.getBook_name() != null){
+            existingBook.setBook_name(updatedBook.getBook_name());
+        }
+        if(updatedBook.getBook_author() != null){
+            existingBook.setBook_author(updatedBook.getBook_author());
+        }
+        if(updatedBook.getGenre() != null){
+            existingBook.setGenre(updatedBook.getGenre());
+        }
+        if(updatedBook.getBook_published_date() != null){
+            existingBook.setBook_published_date(updatedBook.getBook_published_date());
+        }
+        if(updatedBook.getBook_description() != null){
+            existingBook.setBook_description(updatedBook.getBook_description());
+        }
+        if(updatedBook.getBook_url() != null){
+            existingBook.setBook_url(updatedBook.getBook_url());
+        }
+        if(updatedBook.getBook_status() != null){
+            existingBook.setBook_status(updatedBook.getBook_status());
+        }
+
 
         final Book updatedBookEntity = bookRepository.save(existingBook);
         return ResponseEntity.ok(updatedBookEntity);
@@ -53,5 +75,14 @@ public class BookController {
     @GetMapping("/books/status/{status}")
     public List<Book> findBooksByBookStatus(@PathVariable String status){
         return bookRepository.findBooksByBookStatus(status);
+    }
+
+    @DeleteMapping("books/{bookId}")
+    public void deleteBook(@PathVariable long bookId){
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id " + bookId));
+
+        bookRepository.delete(book);
+        System.out.println("book deleted");
     }
 }

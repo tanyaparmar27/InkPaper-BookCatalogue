@@ -12,12 +12,9 @@ import java.util.List;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long book_id;
-
     private String book_name;
     private String book_author;
-
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "genre_id" ,referencedColumnName = "genre_id")

@@ -26,7 +26,7 @@ const BooksByGenrePage = () => {
   }, []);
 
   return (
-    <div className="bg-[url('')] bg-cover bg-center">
+    <div className='bg-[url("https://cdn.cbeditz.com/cbeditz/large/dark-brown-wood-wooden-background-free-wallpaper-zdu3w.jpg")]'>
       <h2 className='text-4xl font-sans text-center sticky top-0 z-10'>Books in {genreName}</h2>
       <div className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
         {books.map(book => (

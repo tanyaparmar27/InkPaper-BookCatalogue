@@ -1,38 +1,38 @@
 export const bestSellers = [
     {
-        image:'https://images.pexels.com/photos/256450/pexels-photo-256450.jpeg?auto=compress&cs=tinysrgb&w=600',
+        image:'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388211242i/69571.jpg',
         title:'Rich Dad Poor Dad'
     },
     {
-        image:'https://images.pexels.com/photos/904620/pexels-photo-904620.jpeg?auto=compress&cs=tinysrgb&w=600',
+        image:'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg',
         title:'Pride and Prejudice'
     },
     {
-        image:'https://images.pexels.com/photos/2228582/pexels-photo-2228582.jpeg?auto=compress&cs=tinysrgb&w=600',
+        image:'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1562726234i/13496.jpg',
         title:'The Game of Thrones'
     },
     {
-        image:'https://images.pexels.com/photos/3847617/pexels-photo-3847617.jpeg?auto=compress&cs=tinysrgb&w=600',
+        image:'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1553383690i/2657.jpg',
         title:'To kill a Mockingbird'
     },
     {
-        image:'https://images.pexels.com/photos/6475044/pexels-photo-6475044.jpeg?auto=compress&cs=tinysrgb&w=600',
+        image:'https://m.media-amazon.com/images/I/91Yr0n5lNWL._AC_UF1000,1000_QL80_.jpg',
         title:'The Lord of the Rings'
     },
     {
-        image:'https://images.pexels.com/photos/3229454/pexels-photo-3229454.jpeg?auto=compress&cs=tinysrgb&w=600',
+        image:'https://m.media-amazon.com/images/I/71HOUccJT6L._AC_UF1000,1000_QL80_.jpg',
         title:'And Then There Were None'
     },
     {
-        image:'https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=600',
+        image:'https://www.crossword.in/cdn/shop/products/9780062312686.jpg?v=1680192778',
         title:'The Intelligent Investor'
     },
     {
-        image:'https://images.pexels.com/photos/66885/owl-yellow-eyes-white-bird-66885.jpeg?auto=compress&cs=tinysrgb&w=600',
+        image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1jU1ZKe42CJmWDONorjdOtgYXNAJxSiv5lQ&usqp=CAU',
         title:'Harry Potter & the Sorcerors Stone'
     },
     {
-        image:'https://images.pexels.com/photos/207353/pexels-photo-207353.jpeg?auto=compress&cs=tinysrgb&w=600',
+        image:'https://upload.wikimedia.org/wikipedia/en/3/3a/Wings_of_Fire_by_A_P_J_Abdul_Kalam_Book_Cover.jpg',
         title:'Wings of Fire'
     }
     

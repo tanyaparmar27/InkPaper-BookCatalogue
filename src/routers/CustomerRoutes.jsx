@@ -4,9 +4,10 @@ import Navbar from '../customers/components/NavBar/Navbar'
 import GenresPage from '../customers/pages/Genre/GenresPage'
 import BooksByGenrePage from '../customers/pages/Genre/BooksByGenrepage'
 import MainBookCard from '../customers/pages/MainBookCard'
-import Profile from '../customers/pages/Profile'
+import Profile from '../customers/pages/Admin/Profile'
 import MyLibrary from '../customers/pages/MyLibrary'
-
+import ManageGenre from '../customers/pages/Admin/ManageGenre'
+import ManageBooks from '../customers/pages/Admin/ManageBooks'
 
 const CustomerRoutes = () => {
   return (
@@ -23,12 +24,10 @@ const CustomerRoutes = () => {
           <Route path='/genres/:genreName' element={<BooksByGenrePage />} />
           <Route path='/books/:bookId' element={<MainBookCard/>}></Route>
           <Route path='/:statusName' element={<MyLibrary/>}></Route>
+          <Route path='/profile/manage_genres' element={<ManageGenre/>}></Route>
+          <Route path='/profile/manage_books' element={<ManageBooks/>}></Route>
         </Routes>
-
-       
-    
-    </div>
-      
+      </div>
     </div>
     
   )

@@ -25,8 +25,8 @@ const GenresPage = () => {
 
 
   return (
-    <div className='' style={{ backgroundImage: `url('')` }}>
-      <h2 className="text-5xl  mb-4 mx-auto "><center>Genres</center></h2>
+    <div className='bg-[url("https://cdn.cbeditz.com/cbeditz/large/dark-brown-wood-wooden-background-free-wallpaper-zdu3w.jpg")] '>
+      <h2 className="text-6xl  mb-4 mx-auto text-white italic"><center>Genres</center></h2>
       <div className="grid grid-cols-3 gap-3 ">
         {genres.map(genre => (
           <div key={genre.genre_id} >
