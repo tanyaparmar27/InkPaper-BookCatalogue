@@ -25,7 +25,7 @@ const MainBookCard = () => {
     setNewStatus(status);
     if(status=='none'){
       try{
-        await axios.patch(`http://localhost:8080/books/${bookId}`, { book_status: null })
+        await axios.patch(`http://localhost:8080/books/${bookId}`, { book_status: '' })
         alert('book status removed')
       }catch(error){
         console.error('error removing book status')
@@ -56,7 +56,7 @@ const MainBookCard = () => {
                 className="ml-2 bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
               >
                 <option value="want_to_read">Want to read</option>
-                <option value="current_reading">Currently reading</option>
+                <option value="currently_reading">Currently reading</option>
                 <option value="already_read">Already read</option>
                 <option value="none">None</option>
               </select>

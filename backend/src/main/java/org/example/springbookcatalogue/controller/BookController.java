@@ -72,9 +72,9 @@ public class BookController {
         return ResponseEntity.ok(updatedBookEntity);
     }
 
-    @GetMapping("/books/status/{status}")
-    public List<Book> findBooksByBookStatus(@PathVariable String status){
-        return bookRepository.findBooksByBookStatus(status);
+    @GetMapping("/books/status/{book_status}")
+    public List<Book> findBooksByBookStatus(@PathVariable String book_status){
+        return bookRepository.findBooksByBookStatus(book_status);
     }
 
     @DeleteMapping("books/{bookId}")

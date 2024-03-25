@@ -13,5 +13,5 @@ public interface BookRepository extends JpaRepository<Book,Long> {
     List<Book> findBookByGenre(@Param("id")Long id);
 
     @Query("select g from Book g where g.book_status= ?1")
-    List<Book> findBooksByBookStatus(@Param("status") String status);
+    List<Book> findBooksByBookStatus(@Param("book_status") String book_status);
 }
