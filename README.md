@@ -8,7 +8,7 @@ Whether you are an avid reader or someone who loves to keep track of their liter
 ## Key Functionalities
 1) Genre Management - lets you easily browse books by various genres and also customize them.
 2) Book Management - Add, Edit, or Remove books from your collection easily.
-3) Status Tracking -  Keep tabs on your reading progress by categorizing books as "Currently Reading," "Want to Read," or "Already Read."
+3) Status Tracking -  Keep tracks on your reading progress by categorizing books as "Currently Reading," "Want to Read," or "Already Read."
    
 ## Technical Functionalities
 1) Frontend - developed using React.js for dynamic and interactive UI
